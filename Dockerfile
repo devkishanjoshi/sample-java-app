@@ -1,5 +1,5 @@
 # ---------- Stage 1: Build ----------
-FROM maven:3.9-eclipse-temurin-8 AS builder
+FROM public.ecr.aws/docker/library/maven:3.9-eclipse-temurin-8 AS builder
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ RUN mvn clean package -DskipTests
 
 
 # ---------- Stage 2: Run ----------
-FROM eclipse-temurin:8-jdk
+FROM public.ecr.aws/docker/library/eclipse-temurin:8-jdk
 
 WORKDIR /app
 
