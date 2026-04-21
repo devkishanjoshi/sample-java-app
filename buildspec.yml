@@ -13,11 +13,11 @@ phases:
 
   post_build:
     commands:
-      -  docker tag app:latest 043695677362.dkr.ecr.ap-south-1.amazonaws.com/app:latest
+      - docker tag app:latest 043695677362.dkr.ecr.ap-south-1.amazonaws.com/app:latest
       - echo Pushing image...
       - docker push 043695677362.dkr.ecr.ap-south-1.amazonaws.com/app:latest
       - echo Writing imagedefinitions.json
-      - printf '[{"name":"container-name","imageUri":"%s"}]' 043695677362.dkr.ecr.ap-south-1.amazonaws.com/app:latest > imagedefinitions.json
+      - printf '[{"name":"app","imageUri":"%s"}]' 043695677362.dkr.ecr.ap-south-1.amazonaws.com/app:latest > imagedefinitions.json
 
 artifacts:
   files:
